@@ -3,6 +3,7 @@ import requests
 
 api_key = st.secrets["APIKEY"]
 url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
+
 request1 = requests.get(url)
 content = request1.json()
 
