@@ -9,9 +9,14 @@ content = request1.json()
 
 image_url = content["hdurl"]
 explanation = content["explanation"]
+title = content["title"]
+
+if not explanation.find("Your Sky Surprise:") == -1:
+    explanation = explanation[:explanation.find("Your Sky Surprise:")]
 
 request2 = requests.get(image_url)
 image = request2.content
 
+st.title(title)
 st.image(image)
 st.write(explanation)
